@@ -4,4 +4,4 @@ githubによるサイト制作です
 https://krkmzero.github.io/ZERO_htmltool/
 
 # マインクラフトツール
-[間宮鯖物価計算機](https://pages.github.com/)
+[間宮鯖物価計算機](https://krkmzero.github.io/ZERO_htmltool/Minecraft_tool/mamiya.html)
