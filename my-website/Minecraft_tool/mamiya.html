@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マイクラ素材換算機</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        select, input { padding: 5px; margin: 5px; width: 50%; max-width: 100px; }
+        textarea { padding: 5px; margin: 5px; width: 80%; max-width: 400px; } /* メモの幅を大きいままにする */
+        button { padding: 5px 15px; }
+        .conversion-table p { margin: 1px 0; } /* 換算表の改行スペースを小さくする */
+    </style>
+</head>
+<body>
+    <h2>マイクラ素材換算機</h2>
+    <input type="number" id="inputValue" placeholder="数量" value="1">
+    <select id="inputUnit">
+        <option value="I">鉄 (I)</option>
+        <option value="G">金 (G)</option>
+        <option value="E">エメラルド (E)</option>
+        <option value="D">ダイヤ (D)</option>
+        <option value="N">ネザライト (N)</option>
+    </select>
+    <button onclick="convert()">換算</button>
+    
+    <h3>換算結果</h3>
+    <div id="result"></div>
+    
+    <h3>メモ</h3>
+    <textarea id="memo" rows="4" placeholder="メモを入力..."></textarea>
+    
+    <h3>換算表</h3>
+    <div class="conversion-table">
+        <p>I = 鉄</p>
+        <p>G = 金</p>
+        <p>E = エメラルド</p>
+        <p>D = ダイヤ</p>
+        <p>N = ネザライト</p>
+    </div>
+    
+    <script>
+        const conversionRates = {
+            I: 1,
+            G: 2,   // 1G = 2I
+            E: 6.67, // 1E ≈ 6.67I
+            D: 10,  // 1D = 10I
+            N: 200  // 1N = 200I
+        };
+
+        function convert() {
+            let value = parseFloat(document.getElementById("inputValue").value);
+            let unit = document.getElementById("inputUnit").value;
+            let baseValue = value * conversionRates[unit]; // 鉄 (I) に換算
+            
+            let resultText = "";
+            for (let key in conversionRates) {
+                let converted = baseValue / conversionRates[key];
+                resultText += `${converted.toFixed(2)} ${key}<br>`;
+            }
+            
+            document.getElementById("result").innerHTML = resultText;
+        }
+    </script>
+</body>
+</html>
