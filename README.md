@@ -5,4 +5,4 @@ https://krkmzero.github.io/ZERO_htmltool/
 
 # マインクラフトツール
 [間宮鯖物価計算機](https://krkmzero.github.io/ZERO_htmltool/Minecraft_tool/mamiya.html)
-<a href="mamiya.html">間宮鯖物価計算機</a>
+<a href="ZERO_htmltool/Minecraft_tool/mamiya.html">間宮鯖物価計算機</a>
